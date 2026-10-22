@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-10-21",
+  "grading": "confirmed = loaded and read on as_of; inferred = from a secondary source or platform knowledge, not loaded",
+  "primary_route": "Community topic tagged 'Feature Request' plus a product tag, in the matching category. Supplied by the user 2026-10-21 and confirmed against live topics (e.g. developers-69/...-25530).",
+
+  "community": {
+    "base": "https://www.1password.community/",
+    "platform": "Gainsight Customer Communities (formerly inSided); migrated from Khoros on 2026-07-02. Before that Vanilla.",
+    "account": "Separate community account (/member/register, /member/login). Not the 1Password account. No 2FA/passkeys. Accounts migrated from the old forum need a password reset.",
+    "urls": {
+      "fr_tag_search": "https://www.1password.community/search/index?q=Feature%20Request&search_type=tag",
+      "keyword_search": "https://www.1password.community/search?q=<terms>",
+      "new_topic": "https://www.1password.community/topic/new",
+      "new_topic_home": "https://www.1password.community/topic/new?fid=31",
+      "new_topic_work": "https://www.1password.community/topic/new?fid=58",
+      "new_topic_developers": "https://www.1password.community/topic/new?fid=69",
+      "guidelines": "https://www.1password.community/p/guidelines",
+      "get_help": "https://www.1password.community/p/gethelp",
+      "categories_hub": "https://www.1password.community/topics-4",
+      "sitemap_topics": "https://www.1password.community/sitemap-topics-1.xml"
+    },
+    "categories": {
+      "home": {"path": "1password-at-home-31", "fid": 31, "for": "Personal and family plans, desktop/mobile apps, browser extension"},
+      "work": {"path": "1password-at-work-58", "fid": 58, "for": "Business/Teams, admin console, provisioning, Extended Access Management"},
+      "developers": {"path": "developers-69", "fid": 69, "for": "op CLI, SSH agent, SDKs, Connect, service accounts, shell plugins, integrations"}
+    },
+    "tags": "Always 'Feature Request' plus a product tag. Tags shown on the at-home new-topic page (confirmed 2026-10-21): Browser Extension, macOS, Windows, iOS, Betas, Android, CLI, Feature Request, Linux, Non-Technical Question. The picker autocompletes other existing tags.",
+    "new_topic_form": "Confirmed 2026-10-21 by posting topic 25878: topic type radio (Question default / Conversation), title input, CKEditor 4 body (editor1), category select preset by ?fid=, tag autocomplete + suggested chips, Create button redirects to the topic.",
+    "machine_readable": {
+      "sitemap": "confirmed: one file, ~25.8k topic URLs with lastmod; slugs are titles",
+      "topic_json_ld": "confirmed: QAPage JSON-LD with name, text (opening post), dateCreated, author, upvoteCount, answerCount. Replies and tags are not in it.",
+      "search": "confirmed: /search renders client-side; a plain fetch gets no results. Use the browser.",
+      "api_rss": "confirmed dead: /api/v2/, /rss, /categories return 404"
+    },
+    "ideas_board": "https://www.1password.community/ideas exists but holds 0 ideas (confirmed). Do not post there.",
+    "voting": "Like button on posts. Staff have said they do not prioritise by votes; requests are logged internally (inferred: Productboard, reference numbers like 'PB-49568927').",
+    "moderation_contact": "community@1password.com (appeal subject: '1Password Community Moderation Appeal')"
+  },
+
+  "secondary_routes": [
+    {"name": "GitHub issues", "url": "https://github.com/1Password", "use_for": "SDKs (onepassword-sdk-js/-python/-go), terraform-provider-onepassword, onepassword-operator, connect-sdk-go, op-vscode, shell-plugins (new-plugin-request template). The op CLI itself has no public repo.", "status": "confirmed"},
+    {"name": "Developer Slack", "url": "https://www.1password.dev/joinslack", "use_for": "Informal developer discussion", "status": "redirect chain confirmed; invite validity not confirmed"},
+    {"name": "Support contact", "url": "https://1password.com/contact-support", "use_for": "Anything involving account details. No feature-request option.", "status": "confirmed"},
+    {"name": "Support email", "url": "mailto:support@1password.com", "status": "inferred (staff refer to it)"},
+    {"name": "SaaS Manager in-app feedback", "url": "https://support.1password.com/saas-manager-feedback-and-requests/", "use_for": "SaaS Manager only; the one real voting portal", "status": "article confirmed"},
+    {"name": "Reddit", "url": "https://www.reddit.com/r/1Password/", "use_for": "Brand-run subreddit with staff flair and a 'Feature Request' flair", "status": "inferred (content blocked to fetch)"},
+    {"name": "Mastodon", "url": "https://1password.social/@1password", "status": "confirmed"},
+    {"name": "Bluesky", "url": "https://bsky.app/profile/1password.bsky.social", "status": "confirmed"},
+    {"name": "Security reports only", "url": "https://hackerone.com/1password", "status": "confirmed"}
+  ],
+
+  "check_before_requesting": {
+    "release_notes": "https://releases.1password.com/ (sections /mac/ /windows/ /linux/ /ios/ /android/ /b5x/ /developers/ /provisioning/ /saas-manager/)",
+    "release_rss": ["https://releases.1password.com/index.xml", "https://releases.1password.com/developers/cli/index.xml"],
+    "product_updates_on_forum": "https://www.1password.community/product-updates (beta build notes)",
+    "betas": "https://support.1password.com/betas/",
+    "roadmap": "none public (1password.com/roadmap 404)"
+  },
+
+  "known_dead": [
+    "community.1password.com - a 1Password sign-in page for an account called 'community', not the forum",
+    "1password.com/community - 404",
+    "Vanilla-era /discussion/NNN links and Khoros-era /discussions/... links - 404 after redirect",
+    "/category/developers/discussions/developers - 404 (still linked from the forum menu)",
+    "/category/discuss/ - 404 (beta-feedback link on support.1password.com/betas/)",
+    "1password.community/categories/secrets-automation - 404 (linked from several GitHub issue templates)",
+    "bugcrowd.com/agilebits - 404 (moved to HackerOne)",
+    "discord.gg/1password - unknown invite; no official Discord",
+    "support+feedback@1password.com - no evidence it exists",
+    "/ideas - loads, empty, not used"
+  ]
+}
