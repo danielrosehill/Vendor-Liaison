@@ -42,8 +42,13 @@ can vouch for. If unsure, say what to test rather than guessing.
    for approval only if the user asks to see it first. Report the posted text afterwards.
 2. In Chrome, open the thread. If not signed in, ask the user to sign in to the community
    account (separate from 1Password). Never type credentials.
-3. Paste the reply, screenshot, submit. For a Like, click it and confirm the count moved.
-4. Read back the post's permalink.
+3. Click **Reply** under the post. The editor is CKEditor 4 (`editor1`); set the body with
+   `CKEDITOR.instances.editor1.setData(html)` and read it back with `getData()`. The
+   submit button is labelled **Send**. For a Like, click it and confirm the count moved.
+4. Read back the post's permalink. After Send the URL gains `?postid=<n>#post<n>`, but
+   the reply may not show on the thread or in the profile's Replies count straight away
+   (seen 2026-10-22, postid 140559, likely held for moderation). Don't resubmit: record
+   the postid and check again later via `op-fr-tracker`.
 5. If it relates to a logged request, update the entry via `op-fr-tracker`.
 
 ## Notes

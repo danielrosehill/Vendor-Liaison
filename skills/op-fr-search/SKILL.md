@@ -42,7 +42,11 @@ asked 1Password for X", "is there a thread about X", or "does 1Password do X yet
    for the Feature Request tag, and `https://www.1password.community/search?q=<terms>`
    for keywords. Read the result list; open a thread to see replies, staff responses and
    whether it is locked.
-5. **Optional: GitHub.** For SDK, Terraform, Connect, operator or shell-plugin requests,
+5. **The user's own topics.** Open the user's profile activity
+   (`/members/<handle>-<id>`, linked from the avatar) and check they haven't asked this
+   already. Their earlier topics can be filed as *Question* with a non-standard title,
+   which the sitemap search misses (2026-10-22: topic 25245 duplicated 24516).
+6. **Optional: GitHub.** For SDK, Terraform, Connect, operator or shell-plugin requests,
    search issues in the matching `github.com/1Password/<repo>`.
 
 ## Output
@@ -57,7 +61,9 @@ Report as JSON-shaped lines, most relevant first:
 ```
 
 Then one line of advice: reply to the existing thread (hand off to
-`op-community-engage`), or post new (hand off to `op-feature-request`).
+`op-community-engage`), or post new (hand off to `op-feature-request`). An exact match
+means a supportive reply that adds the user's use case, posted by default, not a
+dead end.
 
 ## Notes
 

@@ -17,9 +17,12 @@ Read `${CLAUDE_PLUGIN_ROOT}/vendors/1password/posting-guide.md` and `${CLAUDE_PL
 
 ## Steps
 
-1. **Duplicate check.** Run `op-fr-search`. If it finds an exact match, recommend a
-   reply on that thread (`op-community-engage`) instead and stop unless the user insists.
-   A partial match gets linked in the new post.
+1. **Duplicate check.** Run `op-fr-search`. If it finds an exact match, do not open a
+   new topic and do not stop empty-handed: hand off to `op-community-engage` ("Support
+   an existing feature request") and post a supportive reply that adds the user's use
+   case. That is the default outcome of a duplicate, posted without asking; the
+   original request is the permission. Open a new topic only if the thread is locked
+   or the user insists. A partial match gets linked in the new post.
 2. **Gather facts.** Fill gaps the request needs: platform, plan, app or CLI version.
    Get versions from the machine where possible (`op --version`, the app's About
    screen) rather than asking. Ask the user only for the use case if it is missing.
@@ -35,8 +38,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/vendors/1password/posting-guide.md` and `${CLAUDE_PL
 5. **Post by default.** Asking for a feature request is permission to post it. Go
    straight to step 6, and show the final category, tags, title and body in the
    report afterwards. Stop at the draft and wait for approval only when the user asks
-   for that ("draft it", "let me see it first", "pause before posting"), or when the
-   duplicate check found an exact match.
+   for that ("draft it", "let me see it first", "pause before posting").
 6. **Post** with Claude in Chrome (open your own tab):
    1. Open `https://www.1password.community/topic/new?fid=<31|58|69>`.
    2. If the page shows a login prompt, stop and ask the user to sign in to the
