@@ -26,7 +26,9 @@ Fetch the live form every time, because the fields change:
 
 ## Bug report form (as of 2026-10-22)
 
-The form applies the `bug` label automatically. Required fields:
+Submitted in the browser, the form applies the `bug` label. Submitted with `gh issue create`,
+no label is applied (observed 2026-10-22, #104378), and outside contributors can't add one.
+Required fields:
 
 - **Preflight** (three checkboxes): the issue was searched for first, the report covers
   one bug, and you're on the latest version

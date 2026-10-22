@@ -92,8 +92,10 @@ Show the title, the full body and the target repo, and wait for approval. Then:
 gh issue create --repo anthropics/claude-code --title "$TITLE" --body-file "$BODY_FILE"
 ```
 
-The form adds the `bug` label. Don't pass `--label`, because outside contributors can't
-set labels. Report the issue URL.
+Don't pass `--label`, because outside contributors can't set labels. The form's `bug` label
+is **not** applied either: issue-form labels are added only when the form is submitted in
+the browser, not through `gh issue create` (observed 2026-10-22 on #104378, which arrived
+with no labels). Anthropic's triage labels it. Report the issue URL.
 
 ## 5. After filing
 
