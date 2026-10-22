@@ -1,0 +1,62 @@
+{
+  "id": "whisperian",
+  "name": "Whisperian",
+  "maker": "Duplex d.o.o.",
+  "products": ["Whisperian for Android (voice dictation: keyboard and system-wide overlay)"],
+  "homepage": "https://whisperian.app",
+  "verified": "2026-10-22",
+  "channels": [
+    {
+      "id": "support-email",
+      "type": "email",
+      "target": "support@whisperian.app",
+      "visibility": "private",
+      "purposes": ["bug", "support", "feature", "feedback", "question", "security"],
+      "status": "confirmed",
+      "source": "Google Play listing (app.whisperian.client), developer contact, 2026-10-22",
+      "notes": "Listed address; delivery not tested. The domain's MX is Proton Mail."
+    },
+    {
+      "id": "developer-email",
+      "type": "email",
+      "target": "apps@duplex.hr",
+      "visibility": "private",
+      "purposes": ["support"],
+      "status": "confirmed",
+      "source": "Google Play listing, 2026-10-22",
+      "notes": "The developer's company address; use support@whisperian.app first."
+    },
+    {
+      "id": "reddit",
+      "type": "reddit",
+      "target": "https://www.reddit.com/r/Whisperian/",
+      "visibility": "public",
+      "purposes": ["question", "feature", "bug", "feedback"],
+      "dedupe": "RSS search: https://www.reddit.com/r/Whisperian/search.rss?q=<terms>&restrict_sr=on&sort=new (Reddit's .json endpoints refuse anonymous requests)",
+      "status": "confirmed",
+      "source": "whisperian.app homepage: 'technical inquiries, workflow exchanges, and discussion'"
+    },
+    {
+      "id": "play-review",
+      "type": "app-store-review",
+      "target": "https://play.google.com/store/apps/details?id=app.whisperian.client",
+      "visibility": "public",
+      "purposes": ["feedback"],
+      "status": "confirmed",
+      "source": "whisperian.app homepage"
+    }
+  ],
+  "routing": {
+    "bug": ["support-email", "reddit"],
+    "feature": ["support-email", "reddit"],
+    "support": ["support-email", "developer-email"],
+    "question": ["reddit", "support-email"],
+    "feedback": ["support-email", "reddit", "play-review"],
+    "security": ["support-email"]
+  },
+  "rules": [
+    "Search r/Whisperian before writing; if the request is already there, say so in the email or add to the thread.",
+    "Include the Android version, Whisperian version, device, mode (keyboard or overlay) and transcription backend (built-in Groq, own API key and provider, or local model such as Parakeet).",
+    "No security.txt and no public issue tracker as of 2026-10-22; security reports go by private email only."
+  ]
+}

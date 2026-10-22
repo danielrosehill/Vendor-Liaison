@@ -5,7 +5,7 @@ description: File a bug report against Claude Code (anthropics/claude-code on Gi
 
 # Claude Code bug report
 
-Target: `anthropics/claude-code`. Read `${CLAUDE_PLUGIN_ROOT}/vendors/claude-code/reporting.md`
+Target: `anthropics/claude-code`. Read `<plugin-root>/vendors/claude-code/vendor.json` and `reporting.md` there (`<plugin-root>` is `${CLAUDE_PLUGIN_ROOT}` in Claude Code)
 first. It covers the channels, the form fields and how the repo's duplicate bot behaves.
 If `CLAUDE_PLUGIN_ROOT` is unset (the skill was loaded on its own), the same facts are
 summarised here.

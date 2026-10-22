@@ -1,27 +1,57 @@
 # Vendors
 
-One folder per vendor, named in lower-case kebab-case (`claude-code`, `1password`).
+One folder per vendor, named with its lower-case kebab-case id (`claude-code`,
+`1password`, `whisperian`). The folder holds:
 
-## What goes in a vendor folder
+- `vendor.json` (required): the vendor's channels and routing, in the shape below.
+- `reporting.md` (optional): long-form notes, such as form fields, how duplicate
+  handling works, and anything that doesn't fit in a field.
+- Anything else the vendor needs: helper scripts, a drafting guide, a verification log.
 
-- `reporting.md` (required). How the vendor takes **bug reports** and **feature
-  requests**: the channel (GitHub issue form, forum, email, in-app form), the URL, any
-  required fields or template, how to search for existing reports, and any duplicate or
-  auto-close behaviour on the vendor's side. Record the date you verified it and what
-  you confirmed versus inferred.
-- Optional: helper scripts (`scripts/`), machine-readable channel data
-  (`channels.json`), a drafting guide, a verification log.
+Check every change with `python3 scripts/liaison.py validate`.
 
-## Skills
+## vendor.json
 
-Skills live in the top-level `skills/` folder with a short vendor prefix (`cc-`, `op-`).
-Each one reads `${CLAUDE_PLUGIN_ROOT}/vendors/<vendor>/reporting.md` first. Add a skill
-only for what the vendor actually needs: a vendor with a single channel and no tooling
-can get by with notes alone, used through a general flow.
+```json
+{
+  "id": "example",
+  "name": "Example",
+  "maker": "Example Ltd",
+  "products": ["Example for Android"],
+  "homepage": "https://example.com",
+  "verified": "YYYY-MM-DD",
+  "channels": [
+    {
+      "id": "support-email",
+      "type": "email",
+      "target": "support@example.com",
+      "visibility": "private",
+      "purposes": ["bug", "feature", "support", "security"],
+      "dedupe": "how to search for an existing report on this channel (optional)",
+      "status": "confirmed",
+      "source": "where this was found, with date",
+      "notes": "optional"
+    }
+  ],
+  "routing": { "bug": ["support-email"], "security": ["support-email"] },
+  "skills": { "bug": "a-vendor-specific-skill" },
+  "rules": ["Imperative sentences the agent must follow for this vendor."]
+}
+```
 
-Every filing skill has to:
-1. search for an existing report before drafting, and offer to add to it instead;
-2. show the full draft and get approval before posting;
-3. strip secrets and personal detail from logs and reproduction steps.
+| Field | Values |
+|---|---|
+| `type` | `github-issues`, `github-discussions`, `gitlab-issues`, `issue-tracker`, `email`, `contact-form`, `in-app`, `forum`, `reddit`, `discord`, `slack`, `feature-board`, `app-store-review`, `bug-bounty`, `social`, `whatsapp`, `signal`, `telegram`, `phone`, `in-person`, `contact`, `other` |
+| `visibility` | `public`: what you post is visible to anyone. `private`: only the vendor sees it. |
+| `purposes` | `bug`, `feature`, `security`, `support`, `question`, `feedback`, `docs` |
+| `status` | `confirmed` (loaded or seen published), `inferred` (secondary source), `dead` (kept so nobody re-adds it) |
+| `routing` | Per purpose, the recommended order of channel ids. Every id must exist and list that purpose. |
 
-When a vendor is added, add a row to the table in the top-level `README.md`.
+Hard rule, enforced by the validator and the resolver: `routing.security` may only
+contain `private` channels, and the resolver never offers a public channel for `security`.
+
+## Private data
+
+The user's preferences, unpublished addresses, personal contacts and private vendors live
+outside the repo, in `<overlay_dir>/<vendor-id>.json` (see the `vendor-preferences`
+skill). `liaison.py paths` shows where that is. Never commit overlay content.

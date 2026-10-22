@@ -1,0 +1,116 @@
+{
+  "id": "1password",
+  "name": "1Password",
+  "maker": "AgileBits Inc.",
+  "products": ["1Password apps", "browser extension", "op CLI", "SDKs", "Connect", "SaaS Manager"],
+  "homepage": "https://1password.com",
+  "verified": "2026-10-22",
+  "channels": [
+    {
+      "id": "community-forum",
+      "type": "forum",
+      "target": "https://www.1password.community/topic/new",
+      "visibility": "public",
+      "purposes": ["feature", "bug", "question", "feedback"],
+      "dedupe": "op-fr-search skill: release notes, topic sitemap (scripts/community.py search), forum search in a browser",
+      "status": "confirmed",
+      "source": "channels.json, verified 2026-10-21 by posting topic 25878",
+      "notes": "Feature requests: a topic tagged 'Feature Request' plus a product tag. Separate Community account; post from the user's signed-in browser."
+    },
+    {
+      "id": "github-1password",
+      "type": "github-issues",
+      "target": "https://github.com/1Password",
+      "visibility": "public",
+      "purposes": ["bug", "feature"],
+      "dedupe": "gh search issues --repo 1Password/<repo> \"<keywords>\"",
+      "status": "confirmed",
+      "source": "channels.json",
+      "notes": "Only for products with a public repo: SDKs, terraform provider, operator, connect-sdk-go, op-vscode, shell-plugins. The op CLI has none."
+    },
+    {
+      "id": "support-contact",
+      "type": "contact-form",
+      "target": "https://1password.com/contact-support",
+      "visibility": "private",
+      "purposes": ["support", "bug"],
+      "status": "confirmed",
+      "source": "channels.json",
+      "notes": "Anything involving account details. No feature-request option."
+    },
+    {
+      "id": "support-email",
+      "type": "email",
+      "target": "support@1password.com",
+      "visibility": "private",
+      "purposes": ["support", "bug"],
+      "status": "inferred",
+      "source": "channels.json (staff refer to it)"
+    },
+    {
+      "id": "saas-manager-feedback",
+      "type": "in-app",
+      "target": "https://support.1password.com/saas-manager-feedback-and-requests/",
+      "visibility": "private",
+      "purposes": ["feature"],
+      "status": "confirmed",
+      "source": "channels.json",
+      "notes": "SaaS Manager only."
+    },
+    {
+      "id": "reddit",
+      "type": "reddit",
+      "target": "https://www.reddit.com/r/1Password/",
+      "visibility": "public",
+      "purposes": ["question", "feedback", "feature"],
+      "status": "inferred",
+      "source": "channels.json; brand-run, has a 'Feature Request' flair"
+    },
+    {
+      "id": "developer-slack",
+      "type": "slack",
+      "target": "https://www.1password.dev/joinslack",
+      "visibility": "public",
+      "purposes": ["question"],
+      "status": "inferred",
+      "source": "channels.json; invite validity not confirmed"
+    },
+    {
+      "id": "hackerone",
+      "type": "bug-bounty",
+      "target": "https://hackerone.com/1password",
+      "visibility": "private",
+      "purposes": ["security"],
+      "status": "confirmed",
+      "source": "channels.json"
+    },
+    {
+      "id": "security-email",
+      "type": "email",
+      "target": "security@agilebits.com",
+      "visibility": "private",
+      "purposes": ["security"],
+      "status": "confirmed",
+      "source": "https://1password.com/.well-known/security.txt (also bugbounty@agilebits.com)",
+      "notes": "PGP key: https://1password.com/support-at-agilebits-pubkey-42F3D4D4.asc"
+    }
+  ],
+  "routing": {
+    "feature": ["community-forum", "github-1password", "saas-manager-feedback"],
+    "bug": ["community-forum", "github-1password", "support-contact"],
+    "question": ["community-forum", "developer-slack"],
+    "support": ["support-contact", "support-email"],
+    "feedback": ["community-forum"],
+    "security": ["hackerone", "security-email"]
+  },
+  "skills": {
+    "feature": "op-feature-request",
+    "bug": "op-bug-report"
+  },
+  "rules": [
+    "Search release notes and the forum before posting a feature request; add a use case to an existing topic instead of a duplicate.",
+    "Never post account details on the forum; use the support contact form.",
+    "The /ideas board is empty and unused; don't post there.",
+    "Full channel detail and dead URLs: vendors/1password/channels.json."
+  ]
+}

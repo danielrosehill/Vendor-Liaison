@@ -1,9 +1,9 @@
 {
-  "name": "vendor-feedback",
-  "version": "1.0.0",
-  "description": "Bug reports and feature requests to software vendors, one folder of notes per vendor with that vendor's own reporting channels. Always checks for an existing report before filing. Vendors: Claude Code (GitHub bug reports with duplicate search) and 1Password (Community feature requests, bug reports, replies, tracking).",
+  "name": "vendor-liaison",
+  "version": "2.0.0",
+  "description": "Report bugs, request features and disclose security issues to software vendors through each vendor's own channels. Structured channel data per vendor, routing rules, and a private overlay for your preferred channels and personal contacts. Vendors: Claude Code, 1Password, Whisperian.",
   "author": { "name": "Daniel Rosehill", "url": "https://github.com/danielrosehill" },
-  "repository": "https://github.com/danielrosehill/Claude-Vendor-Feedback-Plugin",
+  "repository": "https://github.com/danielrosehill/Vendor-Liaison",
   "license": "MIT",
-  "keywords": ["feedback", "bug-report", "feature-request", "claude-code", "1password", "github-issues", "community"]
+  "keywords": ["vendor", "feedback", "bug-report", "feature-request", "security-disclosure", "support", "claude-code", "1password", "whisperian"]
 }
